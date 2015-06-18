@@ -32,7 +32,7 @@ If there is a `gulpfile.js` located in the root folder of the project, the follo
 If you want to use npm devDependencies, make sure to set:
 
 ```shell
-heroku config:set NPM_CONFIG_PRODUCTION=true
+heroku config:set NPM_CONFIG_PRODUCTION=false
 ```
 
 See [Enable or disable devDependencies installation](#enable-or-disable-devdependencies-installation) for more information.
