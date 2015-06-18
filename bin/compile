@@ -63,6 +63,10 @@ head "Checking startup method"
 ensure_procfile "$start_method" "$build_dir"
 warn_start "$start_method"
 
+####### Run Gulpfile
+head "Running Gulp"
+gulp_build "$build_dir"
+
 ####### Finalize the build
 
 head "Finalizing build"

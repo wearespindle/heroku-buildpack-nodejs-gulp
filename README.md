@@ -1,9 +1,8 @@
-# Heroku Buildpack for Node.js
+# WeAreSpindle Heroku Buildpack for Node.js & Gulp
 
-![heroku-buildpack-featuerd](https://cloud.githubusercontent.com/assets/51578/6953435/52e1af5c-d897-11e4-8712-35fbd4d471b1.png)
+This is a fork of the official [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for Node.js apps.
 
-This is the official [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for Node.js apps. If you fork this repository, please **update this README** to explain what your fork does and why it's special.
-
+Purpose of this fork is to make it possible to run a gulp task called `gulp build` on installation.
 
 ## How it Works
 
@@ -21,6 +20,26 @@ You should never use #4 - it's included for backwards-compatibility and will gen
 For more information, see [the npm docs](https://docs.npmjs.com/misc/faq#should-i-check-my-node_modules-folder-into-git-)
 
 For technical details, check out the [heavily-commented compile script](https://github.com/heroku/heroku-buildpack-nodejs/blob/master/bin/compile).
+
+## Gulp
+
+If there is a `gulpfile.js` located in the root folder of the project, the following will happen:
+
+
+1. Gulp will be installed
+2. `gulp build` is run
+
+If you want to use npm devDependencies, make sure to set:
+
+```shell
+heroku config:set NPM_CONFIG_PRODUCTION=true
+```
+
+See [Enable or disable devDependencies installation](#enable-or-disable-devdependencies-installation) for more information.
+
+For more information about Gulp, see:
+
+- [Gulp documentation](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
 
 ## Documentation
 

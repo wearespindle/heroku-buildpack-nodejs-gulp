@@ -207,6 +207,19 @@ ensure_procfile() {
   fi
 }
 
+gulp_build() {
+  local build_dir=$1
+  if test -f $build_dir/gulpfile.js; then
+    # Install gulp locally
+    info "Installing gulp local"
+    npm install gulp 2>&1 | indent
+    info "Found gulpfile, running gulp build task"
+    $build_dir/node_modules/.bin/gulp build 2>&1 | indent
+  else
+    info "No gulpfile found"
+  fi
+}
+
 write_profile() {
   info "Creating runtime environment"
   mkdir -p $build_dir/.profile.d
